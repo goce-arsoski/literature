@@ -5,9 +5,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Carbon\Carbon;
+use Spatie\Permission\Models\Role;
 
 class AdminSeeder extends Seeder
 {
@@ -16,13 +17,16 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('users')->insert([
-            'name' => 'Admin',
-            'email' => 'admin@admin.admin',
-            'email_verified_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'password' => Hash::make('admin'),
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
+        $user = new User();
+
+        $user->name = 'Admin';
+        $user->email = 'admin@admin.admin';
+        $user->email_verified_at = Carbon::now();
+        $user->password = Hash::make('admin');
+        
+        $user->touch();
+        $user->save();
+        
+        $user->assignRole(['admin']);
     }
 }
