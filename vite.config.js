@@ -2,6 +2,16 @@ import { defineConfig } from 'vite';
 import laravel, { refreshPaths } from 'laravel-vite-plugin';
 
 export default defineConfig({
+    server: {
+        host: 'starter.test',
+        https: false,
+        hmr: {
+            host: 'starter.test',
+        },
+        watch: {
+            usePolling: true,
+        },
+    },
     plugins: [
         laravel({
             input: [
