@@ -27,6 +27,6 @@ class AdminSeeder extends Seeder
         $user->touch();
         $user->save();
         
-        $user->assignRole(['admin']);
+        $user->assignRole(['admin', 'editor']);
     }
 }

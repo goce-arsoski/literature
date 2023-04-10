@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\UserController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,5 +26,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/users', [UserController::class, 'show_users'])->name('show_users');
+    Route::resource('user', \App\Http\Controllers\UserController::class);
 });
