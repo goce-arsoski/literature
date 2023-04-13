@@ -27,4 +27,5 @@ Route::middleware([
     })->name('dashboard');
 
     Route::resource('user', \App\Http\Controllers\UserController::class);
+    Route::resource('blog', \App\Http\Controllers\BlogController::class);
 });

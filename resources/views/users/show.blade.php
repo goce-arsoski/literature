@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Users') }}
+            {{ __('View User') }}
         </h2>
     </x-slot>
 
@@ -29,9 +29,9 @@
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 font-bold mb-2" for="roles">
-                            Roles
+                            Role
                         </label>
-                        <input type="text" id="roles" disabled class="border-gray-300 rounded-md shadow-sm" value="{{ $user->getRoleNames()->implode(', ') }}">
+                        <input type="text" id="roles" disabled class="border-gray-300 rounded-md shadow-sm" value="{{ ucfirst($user->getRoleNames()->implode(', ')) }}">
                     </div>
                     @if ($user->profile_photo_path != null)
                     <div class="mb-4 content-center">

@@ -11,15 +11,21 @@ class Index extends Component
 {
     use WithPagination;
 
-    public $per_page = 25;
+    public $per_page = [10, 25, 50];
+    public $per_page_selected = 10;
     public $search = '';
+
+    public function deleteUser(User $user)
+    {
+        $user->delete();
+    }
 
     public function render()
     {
-        $users = User::where('name', 'like', '%' . $this->search . '%');
+        $users = User::where('name', 'like', '%' . $this->search . '%')->orWhere('email', 'like', '%' . $this->search . '%')->paginate($this->per_page_selected);
 
         return view('livewire.users.index', [
-            'users' => $users->paginate($this->per_page),
+            'users' => $users,
         ]);
     }
 }
