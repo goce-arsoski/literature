@@ -6,6 +6,9 @@ use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 use App\Models\Blog;
 
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Gate;
+
 class BlogController extends Controller
 {
     /**
@@ -13,7 +16,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        abort_if(Gate::denies('edit_blogs'), 403);
+
+        return view('blogs.index');
     }
 
     /**
@@ -21,7 +26,9 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        abort_if(Gate::denies('edit_blogs'), 403);
+        
+        return view('blogs.create');
     }
 
     /**
@@ -37,7 +44,9 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        abort_if(Gate::denies('edit_blogs'), 403);
+
+        return view('blogs.show', compact('blog'));
     }
 
     /**
@@ -45,7 +54,9 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        abort_if(Gate::denies('edit_blogs'), 403);
+        
+        return view('blogs.edit', compact('blog'));
     }
 
     /**

@@ -6,6 +6,9 @@
         <input type="text" id="search" class="border-gray-300 rounded-md shadow-sm"
             wire:model.debounce.500ms="search"
         >
+        <div wire:loading>
+            Processing...
+        </div>
     </div>
     <div>
         <a href="{{ route('user.create') }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Create new user</a>
@@ -19,18 +22,17 @@
             <option value="{{ $per }}">{{ $per }}</option>
             @endforeach
         </select>
-        @error('role') <span class="error">{{ $message }}</span> @enderror
     </div>
     <table class="mx-auto table-auto">
         <thead>
             <tr class="bg-gradient-to-r from-sky-600 to-cyan-400">
-                <th class="px-10 py-2">
+                <th class="px-10 py-2 cursor-pointer" wire:click="order_by('id')">
                     <span class="text-gray-100 font-semibold">Id</span>
                 </th>
-                <th class="px-10 py-2">
+                <th class="px-10 py-2 cursor-pointer" wire:click="order_by('name')">
                     <span class="text-gray-100 font-semibold">Name</span>
                 </th>
-                <th class="px-10 py-2">
+                <th class="px-10 py-2 cursor-pointer" wire:click="order_by('email')">
                     <span class="text-gray-100 font-semibold">Email</span>
                 </th>
                 <th class="px-10 py-2">
@@ -69,7 +71,7 @@
                     <span><a href="{{ route('user.edit', $user) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Edit</a></span>
                 </td>
                 <td class="px-10 py-2">
-                    <span><a href="#" wire:click.prevent="deleteUser({{ $user }})" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Delete</a></span>
+                    <span><a href="#" wire:click.prevent="delete_user({{ $user }})" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Delete</a></span>
                 </td>
             </tr>
             @endforeach

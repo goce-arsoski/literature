@@ -28,4 +28,5 @@ Route::middleware([
 
     Route::resource('user', \App\Http\Controllers\UserController::class);
     Route::resource('blog', \App\Http\Controllers\BlogController::class);
+    Route::post('/upload', [\App\Http\Controllers\Controller::class, 'upload']);
 });

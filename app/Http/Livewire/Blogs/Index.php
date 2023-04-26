@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Livewire\Users;
+namespace App\Http\Livewire\Blogs;
 
 use Livewire\Component;
 
-use App\Models\User;
+use App\Models\Blog;
 use Livewire\WithPagination;
 
 class Index extends Component
@@ -17,9 +17,9 @@ class Index extends Component
     public $order_by = 'id';
     public $order_type = 'asc';
 
-    public function delete_user(User $user)
+    public function delete_blog(Blog $blog)
     {
-        $user->delete();
+        $blog->delete();
     }
 
     public function order_by($order_by)
@@ -36,15 +36,26 @@ class Index extends Component
         }
     }
 
+    public function set_published($blog_id)
+    {      
+        $blog = Blog::find($blog_id);
+        $published = $blog->published;
+
+        $blog->published = !$published;
+
+        $blog->save();
+    }
+
     public function render()
     {
-        $users = User::where('name', 'like', '%' . $this->search . '%')
-            ->orWhere('email', 'like', '%' . $this->search . '%')
+        $blogs = Blog::where('title', 'like', '%' . $this->search . '%')
+            ->orWhere('keywords', 'like', '%' . $this->search . '%')
+            ->orWhere('description', 'like', '%' . $this->search . '%')
             ->orderBy($this->order_by, $this->order_type)
             ->paginate($this->per_page_selected);
 
-        return view('livewire.users.index', [
-            'users' => $users,
+        return view('livewire.blogs.index', [
+            'blogs' => $blogs,
         ]);
     }
 }

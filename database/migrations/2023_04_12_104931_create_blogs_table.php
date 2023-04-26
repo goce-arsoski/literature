@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
+            $table->string('author');
+            $table->boolean('published');
             $table->text('keywords');
             $table->text('description');
-            $table->string('image');
-            $table->text('body');
+            $table->string('image')->nullable();
+            $table->text('body')->nullable();
             $table->timestamps();
         });
     }
