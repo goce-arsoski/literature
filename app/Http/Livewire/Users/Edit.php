@@ -47,9 +47,11 @@ class Edit extends Component
         
         if ($this->role != 'no_role') {
             $user->syncRoles($this->role);
+        } else {
+            $user->syncRoles([]);
         }
 
-        $user->save;
+        $user->save();
 
         session()->flash('message', 'User successfully edited');
     }

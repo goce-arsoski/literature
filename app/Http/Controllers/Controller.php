@@ -8,6 +8,9 @@ use Illuminate\Routing\Controller as BaseController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use App\Models\Blog;
+use App\Models\Settings;
+use App\Models\Faqs;
 
 class Controller extends BaseController
 {
@@ -21,6 +24,42 @@ class Controller extends BaseController
 
         return response()->json([
             'location' => url($image_path)
+        ]);
+    }
+
+    public function list_blogs($main_slug)
+    {
+        $blogs = Blog::where('published', true)->get();
+
+        $settings = Settings::first();
+
+        return view('blogs.list', [
+            'blogs' => $blogs,
+            'settings' => $settings
+        ]);
+    }
+
+    public function list_blog($main_slug, $slug)
+    {
+        $blog = Blog::where('slug', $slug)->first();
+
+        $settings = Settings::first();
+
+        return view('blogs.list_blog', [
+            'blog' => $blog,
+            'settings' => $settings
+        ]);
+    }
+
+    public function list_faqs()
+    {
+        $faqs = Faqs::orderBy('order')->get();
+
+        $settings = Settings::first();
+
+        return view('faqs.list', [
+            'faqs' => $faqs,
+            'settings' => $settings
         ]);
     }
 }

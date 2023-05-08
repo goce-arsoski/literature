@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Blogs;
 use Livewire\Component;
 
 use App\Models\Blog;
+use App\Models\Settings;
+
 use Livewire\WithPagination;
 
 class Index extends Component
@@ -54,8 +56,11 @@ class Index extends Component
             ->orderBy($this->order_by, $this->order_type)
             ->paginate($this->per_page_selected);
 
+        $settings = Settings::first();
+
         return view('livewire.blogs.index', [
             'blogs' => $blogs,
+            'settings' => $settings
         ]);
     }
 }

@@ -2,11 +2,12 @@
 
 namespace App\Http\Livewire\Blogs;
 
-use Livewire\Component;
-
 use App\Models\Blog;
-use Livewire\WithFileUploads;
+
+use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Auth;
 
 class Create extends Component
 {
@@ -55,6 +56,7 @@ class Create extends Component
         $blog = Blog::create([
             'title' => $this->title,
             'slug' => $this->slug,
+            'author' => Auth::user()->name,
             'published' => $this->published,
             'keywords' => $this->keywords,
             'description' => $this->description,

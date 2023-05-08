@@ -10,27 +10,11 @@
             Processing...
         </div>
     </div>
-    <div>
-        <a href="{{ route('blog.create') }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Create new blog</a>
-    </div>
-    <div>
-        <a href="{{ route('list_blogs', ['main_slug' => $settings->blogs_slug]) }}" target="_blank" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Blog public link</a>
-    </div>
-    <div>
-        <label class="block text-gray-700 font-bold mb-2" for="per_page_selected">
-            Results per page
-        </label>
-        <select id="per_page_selected" wire:model="per_page_selected" class="border-gray-300 rounded-md shadow-sm">
-            @foreach ($per_page as $per)
-            <option value="{{ $per }}">{{ $per }}</option>
-            @endforeach
-        </select>
-    </div>
     <table class="mx-auto table-auto">
         <thead>
             <tr>
                 <td colspan="8">
-                    <span>{{ $blogs->links() }}</span>
+                    <span>{{ $faqs->links() }}</span>
                 </td>
             </tr>
             <tr class="bg-gradient-to-r from-sky-600 to-cyan-400">
@@ -38,13 +22,13 @@
                     <span class="text-gray-100 font-semibold">Id</span>
                 </th>
                 <th class="px-10 py-2 cursor-pointer" wire:click="order_by('title')">
-                    <span class="text-gray-100 font-semibold">Title</span>
+                    <span class="text-gray-100 font-semibold">Question</span>
                 </th>
                 <th class="px-10 py-2">
-                    <span class="text-gray-100 font-semibold">Published</span>
+                    <span class="text-gray-100 font-semibold">Answer</span>
                 </th>
                 <th class="px-10 py-2 cursor-pointer" wire:click="order_by('keywords')">
-                    <span class="text-gray-100 font-semibold">Keywords</span>
+                    <span class="text-gray-100 font-semibold">Order</span>
                 </th>
                 <th class="px-10 py-2 cursor-pointer" wire:click="order_by('description')">
                     <span class="text-gray-100 font-semibold">Description</span>
@@ -94,12 +78,5 @@
             </tr>
             @endforeach
         </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="8">
-                    <span>{{ $blogs->links() }}</span>
-                </td>
-            </tr>
-        </tfoot>
     </table>
 </div>
