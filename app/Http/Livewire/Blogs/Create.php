@@ -16,6 +16,7 @@ class Create extends Component
     public $title;
     public $slug;
     public $published;
+    public $use_global;
     public $keywords;
     public $description;
     public $image;
@@ -28,6 +29,7 @@ class Create extends Component
             'title' => 'string|required|min:8',
             'slug' => 'required|unique:blogs,slug',
             'published' => 'boolean|required',
+            'use_global' => 'boolean|required',
             'keywords' => 'nullable|min:8',
             'description' => 'string|required|min:8',
             'image' => 'nullable|image|max:1024',
@@ -38,6 +40,7 @@ class Create extends Component
     public function mount()
     {
         $this->published = false;
+        $this->use_global = false;
         $this->title_focused = false;
     }
 
@@ -58,6 +61,7 @@ class Create extends Component
             'slug' => $this->slug,
             'author' => Auth::user()->name,
             'published' => $this->published,
+            'use_global' => $this->use_global,
             'keywords' => $this->keywords,
             'description' => $this->description,
             'image' => $image_url,

@@ -14,6 +14,7 @@ class Edit extends Component
     public $title;
     public $slug;
     public $published;
+    public $use_global;
     public $keywords;
     public $description;
     public $image;
@@ -27,6 +28,7 @@ class Edit extends Component
             'title' => 'string|required|min:8',
             'slug' => 'required|unique:blogs,slug,'.$this->blog->id,
             'published' => 'boolean|required',
+            'use_global' => 'boolean|required',
             'keywords' => 'nullable|min:8',
             'description' => 'string|required|min:8',
             'image' => 'nullable|image|max:1024',
@@ -39,6 +41,7 @@ class Edit extends Component
         $this->title = $blog->title;
         $this->slug = $blog->slug;
         $this->published = $blog->published;
+        $this->use_global = $blog->use_global;
         $this->keywords = $blog->keywords;
         $this->description = $blog->description;
         $this->old_image = $blog->image;
@@ -54,6 +57,7 @@ class Edit extends Component
         $blog->title = $this->title;
         $blog->slug = $this->slug;
         $blog->published = $this->published;
+        $blog->use_global = $this->use_global;
         $blog->keywords = $this->keywords;
         $blog->description = $this->description;
 

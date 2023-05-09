@@ -48,6 +48,16 @@ class Index extends Component
         $blog->save();
     }
 
+    public function set_use_global($blog_id)
+    {      
+        $blog = Blog::find($blog_id);
+        $use_global = $blog->use_global;
+
+        $blog->use_global = !$use_global;
+
+        $blog->save();
+    }
+
     public function render()
     {
         $blogs = Blog::where('title', 'like', '%' . $this->search . '%')

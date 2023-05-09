@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('author');
             $table->boolean('published');
+            $table->boolean('use_global');
             $table->text('keywords');
             $table->text('description');
             $table->string('image')->nullable();

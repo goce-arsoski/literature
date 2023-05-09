@@ -43,7 +43,7 @@
                 <th class="px-10 py-2 cursor-pointer" wire:click="order_by('answer')">
                     <span class="text-gray-100 font-semibold">Answer</span>
                 </th>
-                <th class="px-10 py-2">
+                <th class="px-10 py-2 cursor-pointer" wire:click="order_by('order')">
                     <span class="text-gray-100 font-semibold">Order</span>
                 </th>
                 <th class="px-10 py-2">

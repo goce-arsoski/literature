@@ -38,6 +38,7 @@ class BlogFactory extends Factory
             'slug' => Str::slug($title, '-'),
             'author' => $this->faker->name(),
             'published' => true,
+            'use_global' => true,
             'keywords' => $keywords,
             'description' => $this->faker->sentences(rand(3, 12), true),
             'image' => $image,

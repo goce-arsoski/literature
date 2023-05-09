@@ -3,12 +3,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        @if ($settings->global_keywords != null)
+        @if ($settings->global_keywords != null && $blog->use_global == true)
         <meta name="keywords" content="{{ $settings->global_keywords . ', ' . $blog->keywords }}">
         @else
         <meta name="keywords" content="{{ $blog->keywords }}">
         @endif
-        @if ($settings->global_description != null)
+        @if ($settings->global_description != null && $blog->use_global == true)
         <meta name="description" content="{{ $settings->global_description . ' ' . $blog->description }}">
         @else
         <meta name="description" content="{{ $blog->description }}">
