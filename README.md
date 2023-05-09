@@ -52,6 +52,12 @@ In order to exit the artisan console use the following command:
 exit
 ```
 
+## Project requirements
+
+The project is made in Laravel Framework version 10.0.
+
+Required PHP version is 8.1.
+
 ## &copy; made by zlatkomajstor
 
 ## &copy; frontend made by taljance
