@@ -54,4 +54,4 @@ exit
 
 ## &copy; made by zlatkomajstor
 
-## &copy; frontend made by italijance
+## &copy; frontend made by taljance
