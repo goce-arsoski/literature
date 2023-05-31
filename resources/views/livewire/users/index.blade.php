@@ -64,7 +64,11 @@
                 <tr class="border-b">
                     <td class="px-2 py-2 whitespace-nowrap text-sm font-medium text-gray-900 align-middle text-center">
                         <div class="inline-block rounded-full w-9 h-9">
-                            <img src="{{ $user->profile_photo_url }}" alt="" class="object-fit object-center w-full h-full rounded-full">
+                            @if($user->profile_photo_path)
+                                <img src="{{ asset("storage/" . $user->profile_photo_path) }}" alt="" class="object-fit object-center w-full h-full rounded-full">
+                            @else 
+                                <img src="{{ $user->profile_photo_url }}" alt="" class="object-fit object-center w-full h-full rounded-full">
+                            @endif
                         </div>
                     </td>
                     <td class="text-sm md:text-base text-neutral-800 font-normal text-4 px-2 py-2 whitespace-nowrap align-middle text-center">{{ $user->id }}</td>

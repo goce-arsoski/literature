@@ -18,9 +18,13 @@ class Index extends Component
     public $order_by = 'id';
     public $order_type = 'asc';
 
+    protected $listeners = [
+        '$refresh'
+    ];
+
     public function delete_blog(Blog $blog)
     {
-        $blog->delete();
+        $this->emitTo('modal', 'delete_blog', $blog->id);
     }
 
     public function order_by($order_by)

@@ -26,7 +26,8 @@
     </head>
     <body x-data="{ active:false, @if(Route::is('chat'))bodyclass:true @else bodyclass:false @endif , isactive:false, togglemenu:false, notificationtoggle:false, open:false}" x-bind:class="{'mainmenu-collapsed' : bodyclass, 'togglemenu':togglemenu, 'notificationtoggle':notificationtoggle}" class="group/maincollapse group/togglemenu font-sans antialiased bg-white">
 
-        {{-- <div class="fixed top-0 left-0 z-[1050] w-screen h-screen bg-black/50 hidden" x-bind:class="{'!block' : modalShow}"></div> --}}
+        <livewire:modal />
+
         <div class="fixed top-0 left-0 z-[1050] w-screen h-screen bg-black/50 hidden"></div>
 
         <x-banner />
