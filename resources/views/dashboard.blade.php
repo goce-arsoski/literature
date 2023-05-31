@@ -21,7 +21,7 @@
                 {{ __('Dashboard') }}
             </h2>
 
-            <p class="text-xl">Welcome to project dashboard. Use left sidebar menu to navigate true page! Thanks.</p>
+            <p class="text-xl">Welcome to project dashboard. Use left sidebar menu to navigate through page! Thanks.</p>
         </div>
     </section>
 
