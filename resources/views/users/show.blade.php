@@ -36,7 +36,11 @@
                                         Profile Photo
                                     </label>
                                     <div class="w-[100px] h-[100px] rounded-full bg-gray-50">
-                                        <img  src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}" class="object-cover object-center w-full h-full rounded-full">
+                                        @if($user->profile_photo_path)
+                                            <img  src="{{ asset("storage/" . $user->profile_photo_path) }}" class="object-cover object-center w-full h-full rounded-full">
+                                        @else 
+                                            <img  src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}" class="object-cover object-center w-full h-full rounded-full">
+                                        @endif
                                     </div>
 
                                 </div>
