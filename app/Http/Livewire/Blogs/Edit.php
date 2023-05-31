@@ -72,7 +72,10 @@ class Edit extends Component
 
         $blog->save();
 
-        session()->flash('message', 'Blog successfully edited');
+        session()->flash('flash.banner', 'Blog successfully edited');
+        session()->flash('flash.bannerStyle', 'success');
+        
+        return redirect()->route('blog.index');
     }
 
     public function render()

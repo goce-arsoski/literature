@@ -48,7 +48,7 @@
                     </div>
 
                     <div>
-                        <a href="{{ route('user.show', $user) }}" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-blue-500 bg-white text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 hover:text-white transition ease-in-out duration-200">Cancel</a>
+                        <a href="{{ route('user.index') }}" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-blue-500 bg-white text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 hover:text-white transition ease-in-out duration-200">Cancel</a>
                     </div>
                 </div>
             </div>

@@ -53,7 +53,10 @@ class Edit extends Component
 
         $user->save();
 
-        session()->flash('message', 'User successfully edited');
+        session()->flash('flash.banner', 'User successfully edited');
+        session()->flash('flash.bannerStyle', 'success');
+        
+        return redirect()->route('user.index');
     }
 
     public function render()

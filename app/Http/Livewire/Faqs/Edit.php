@@ -17,14 +17,12 @@ class Edit extends Component
     {
         return [
             'question' => 'string|required|min:5',
-            'answer' => 'string|required|min:5',
-            'order' => 'integer|required',
+            'answer' => 'string|required|min:5'
         ];
     }
 
     public function mount(Faq $faq)
     {
-        $this->faq = $faq;
         $this->question = $faq->question;
         $this->answer = $faq->answer;
     }
@@ -41,7 +39,10 @@ class Edit extends Component
 
         $faq->save();
 
-        session()->flash('message', 'FAQs successfully edited');
+        session()->flash('flash.banner', 'FAQ successfully edited');
+        session()->flash('flash.bannerStyle', 'success');
+        
+        return redirect()->route('faq.index');
     }
 
     public function render()

@@ -22,7 +22,7 @@
          
             <div class="w-full px-4 py-2" wire:ignore>
                 <label class="block text-neutral-800 font-medium text-base mb-1" for="answer">Answer</label>
-                <textarea id="answer" wire:model='answer' name="body" class="min-h-fit h-48">
+                <textarea id="answer" wire:model='answer' name="answer" class="min-h-fit h-48">
                 </textarea>
             </div>
 
@@ -96,7 +96,7 @@
                 //     editor.save();
                 // });
                 editor.on('change', function (e) {
-                    @this.set('body', editor.getContent());
+                    @this.set('answer', editor.getContent());
                 });
             }
         });
