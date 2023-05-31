@@ -34,10 +34,10 @@ Route::middleware([
     Route::post('/upload', [\App\Http\Controllers\Controller::class, 'upload']);
 
     Route::resource('settings', \App\Http\Controllers\SettingsController::class);
-    Route::resource('faqs', \App\Http\Controllers\FaqsController::class);
+    Route::resource('faq', \App\Http\Controllers\FaqController::class);
 });
 
-Route::get('/faq', [\App\Http\Controllers\Controller::class, 'list_faqs'])->name('list_faqs');
+Route::get('/faqs', [\App\Http\Controllers\Controller::class, 'list_faqs'])->name('list_faqs');
 
 Route::get('/{main_slug}/{slug}', [\App\Http\Controllers\Controller::class, 'list_blog'])->name('list_blog');
 Route::get('/{main_slug}', [\App\Http\Controllers\Controller::class, 'list_blogs'])->name('list_blogs');

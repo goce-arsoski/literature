@@ -33,7 +33,7 @@
                     </div>
 
                     <div>
-                        <a href="{{ route('faqs.index') }}" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-blue-500 bg-white text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 hover:text-white transition ease-in-out duration-200">Cancel</a>
+                        <a href="{{ route('faq.index') }}" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-blue-500 bg-white text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 hover:text-white transition ease-in-out duration-200">Cancel</a>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
         const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
 
         tinymce.init({
-            selector: 'textarea#body',
+            selector: 'textarea#answer',
             plugins: 'preview importcss searchreplace autolink directionality code visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
             editimage_cors_hosts: ['picsum.photos'],
             menubar: 'file edit view insert format tools table help',

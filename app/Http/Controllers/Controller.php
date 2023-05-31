@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Models\Blog;
 use App\Models\Settings;
-use App\Models\Faqs;
+use App\Models\Faq;
 
 class Controller extends BaseController
 {
@@ -53,7 +53,7 @@ class Controller extends BaseController
 
     public function list_faqs()
     {
-        $faqs = Faqs::orderBy('order')->get();
+        $faqs = Faq::orderBy('order')->get();
 
         $settings = Settings::first();
 

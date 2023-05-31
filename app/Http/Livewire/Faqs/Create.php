@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Faqs;
 
-use App\Models\Faqs;
+use App\Models\Faq;
 
 use Livewire\Component;
 
@@ -24,7 +24,7 @@ class Create extends Component
     {
         $this->validate();
 
-        $faq = Faqs::create([
+        $faq = Faq::create([
             'question' => $this->question,
             'answer' => $this->answer,
         ]);

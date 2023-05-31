@@ -123,7 +123,7 @@
     
                                 <ul class="mb-0">
                                     <li class="pb-1">
-                                        <a href="{{ route('faqs.edit', $faq) }}" class="text-sm text-gray-500 py-1 px-2 block text-left bg-transparent font-normal transition-all duration-300 rounded-md hover:bg-blue-50 hover:text-blue-500 hover:font-bold">Edit FAQ</a>
+                                        <a href="{{ route('faq.edit', $faq) }}" class="text-sm text-gray-500 py-1 px-2 block text-left bg-transparent font-normal transition-all duration-300 rounded-md hover:bg-blue-50 hover:text-blue-500 hover:font-bold">Edit FAQ</a>
                                     </li>
                                     <li class="pb-0">
                                         <a href="" wire:click.prevent="delete_faq({{ $faq }})" class="text-sm text-gray-500 py-1 px-2 block text-left bg-transparent font-normal transition-all duration-300 rounded-md hover:bg-blue-50 hover:text-blue-500 hover:font-bold">Delete FAQ</a>

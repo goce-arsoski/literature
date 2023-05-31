@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreFaqsRequest;
-use App\Http\Requests\UpdateFaqsRequest;
-use App\Models\Faqs;
+use App\Http\Requests\StoreFaqRequest;
+use App\Http\Requests\UpdateFaqRequest;
+use App\Models\Faq;
 
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Gate;
 
-class FaqsController extends Controller
+class FaqController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class FaqsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFaqsRequest $request)
+    public function store(StoreFaqRequest $request)
     {
         //
     }
@@ -42,7 +42,7 @@ class FaqsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Faqs $faq)
+    public function show(Faq $faq)
     {
         //
     }
@@ -50,17 +50,17 @@ class FaqsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Faqs $faqs)
+    public function edit(Faq $faq)
     {
         abort_if(Gate::denies('edit_blogs'), 403);
-        
-        return view('faqs.edit', compact('faqs'));
+
+        return view('faqs.edit', compact('faq'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateFaqsRequest $request, Faqs $faq)
+    public function update(UpdateFaqRequest $request, Faq $faq)
     {
         //
     }
@@ -68,7 +68,7 @@ class FaqsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Faqs $faq)
+    public function destroy(Faq $faq)
     {
         //
     }

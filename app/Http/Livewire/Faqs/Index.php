@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Faqs;
 
 use Livewire\Component;
 
-use App\Models\Faqs;
+use App\Models\Faq;
 use App\Models\Settings;
 
 use Livewire\WithPagination;
@@ -19,7 +19,7 @@ class Index extends Component
     public $order_by = 'order';
     public $order_type = 'asc';
 
-    public function delete_faq(Faqs $faq)
+    public function delete_faq(Faq $faq)
     {
         $faq->delete();
     }
@@ -40,10 +40,10 @@ class Index extends Component
 
     public function move_down($id)
     {
-        $current_faq = Faqs::find($id);
+        $current_faq = Faq::find($id);
         $current_faq_order = $current_faq->order;
 
-        $next_faq = Faqs::where('order', $current_faq_order + 1)->first();
+        $next_faq = Faq::where('order', $current_faq_order + 1)->first();
 
         if ($next_faq != null) {
             $next_faq_order = $next_faq->order;
@@ -57,10 +57,10 @@ class Index extends Component
 
     public function move_up($id)
     {
-        $current_faq = Faqs::find($id);
+        $current_faq = Faq::find($id);
         $current_faq_order = $current_faq->order;
 
-        $previous_faq = Faqs::where('order', $current_faq_order - 1)->first();
+        $previous_faq = Faq::where('order', $current_faq_order - 1)->first();
 
         if ($previous_faq != null) {
             $previous_faq_order = $previous_faq->order;
@@ -74,7 +74,7 @@ class Index extends Component
 
     public function render()
     {
-        $faqs = Faqs::where('question', 'like', '%' . $this->search . '%')
+        $faqs = Faq::where('question', 'like', '%' . $this->search . '%')
             ->orWhere('answer', 'like', '%' . $this->search . '%')
             ->orderBy($this->order_by, $this->order_type)
             ->paginate($this->per_page_selected);

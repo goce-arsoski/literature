@@ -4,14 +4,14 @@ namespace App\Http\Livewire\Faqs;
 
 use Livewire\Component;
 
-use App\Models\Faqs;
+use App\Models\Faq;
 
 class Edit extends Component
 {
     public $question;
     public $answer;
     public $order;
-    public $faqs;
+    public $faq;
     
     protected function rules()
     {
@@ -22,31 +22,30 @@ class Edit extends Component
         ];
     }
 
-    public function mount(Faqs $faqs)
+    public function mount(Faq $faq)
     {
-        $this->faqs = $faqs;
-        $this->question = $faqs->question;
-        $this->answer = $faqs->answer;
+        $this->faq = $faq;
+        $this->question = $faq->question;
+        $this->answer = $faq->answer;
     }
 
     public function submit()
     {
         $this->validate();
 
-        $faqs = $this->faqs;
+        $faq = $this->faq;
 
-        $faqs->question = $this->question;
-        $faqs->answer = $this->answer;
+        $faq->question = $this->question;
+        $faq->answer = $this->answer;
         
 
-        $faqs->save();
+        $faq->save();
 
         session()->flash('message', 'FAQs successfully edited');
     }
 
     public function render()
     {
-        dd($this->faqs);
         return view('livewire.faqs.edit');
     }
 }
