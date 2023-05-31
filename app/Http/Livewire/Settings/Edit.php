@@ -62,7 +62,10 @@ class Edit extends Component
 
         $settings->save();
 
-        session()->flash('message', 'Settings successfully edited');
+        session()->flash('flash.banner', 'Settings successfully edited');
+        session()->flash('flash.bannerStyle', 'success');
+        
+        return redirect()->route('dashboard');
     }
 
     public function render()
