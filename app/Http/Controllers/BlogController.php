@@ -9,6 +9,8 @@ use App\Models\Blog;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Gate;
 
+use App\Models\Settings;
+
 class BlogController extends Controller
 {
     /**
@@ -18,7 +20,9 @@ class BlogController extends Controller
     {
         abort_if(Gate::denies('edit_blogs'), 403);
 
-        return view('blogs.index');
+        $settings = Settings::first();
+        
+        return view('blogs.index', ['settings' => $settings]);
     }
 
     /**

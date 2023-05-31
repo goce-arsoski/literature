@@ -1,89 +1,105 @@
-<div class="text-center">
+<div class="w-fill block">
     <form wire:submit.prevent="submit">
-        <div wire:loading wire:target="image">Uploading...</div>
-        <div lass="mb-4">
-            @if (session()->has('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
-                </div>
-            @endif
-        </div>
-        <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="title">
-                Title
-            </label>
-            <input type="text" id="title" wire:model="title" class="border-gray-300 rounded-md shadow-sm">
-            @error('title') <span class="error">{{ $message }}</span> @enderror
-        </div>
-        <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="published">
-                Published
-            </label>
-            <label class="relative inline-flex items-center mb-5 cursor-pointer">
-                <input type="checkbox" id="published" class="sr-only peer" wire:model="published">
-                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
-            </label>
-            @error('published') <span class="error">{{ $message }}</span> @enderror
-        </div>
-        <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="use_global">
-                Use global keywords and description
-            </label>
-            <label class="relative inline-flex items-center mb-5 cursor-pointer">
-                <input type="checkbox" id="use_global" class="sr-only peer" wire:model="use_global">
-                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
-            </label>
-            @error('use_global') <span class="error">{{ $message }}</span> @enderror
-        </div>
-        <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="slug">
-                Slug
-            </label>
-            <input type="text" id="slug" wire:model="slug" class="border-gray-300 rounded-md shadow-sm">
-            @error('slug') <span class="error">{{ $message }}</span> @enderror
-        </div>
-        <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="keywords">
-                Keywords
-            </label>
-            <input type="text" id="keywords" wire:model="keywords" class="border-gray-300 rounded-md shadow-sm">
-            @error('keywords') <span class="error">{{ $message }}</span> @enderror
-        </div>
-        <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="description">
-                Description
-            </label>
-            <input type="text" id="description" wire:model="description" class="border-gray-300 rounded-md shadow-sm">
-            @error('description') <span class="error">{{ $message }}</span> @enderror
-        </div>
-        <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="image">
-                Image
-            </label>
-            <input type="file" id="image" wire:model="image" class="border-gray-300 rounded-md shadow-sm">
-            @error('image') <span class="error">{{ $message }}</span> @enderror
-        </div>
-        <div wire:ignore class="mb-4">
-            <textarea id="body" wire:model='body' name="body" class="min-h-fit h-48">
-            </textarea>
-        </div>
-        @if ($image)
-            Image Preview:
-            <img src="{{ $image->temporaryUrl() }}" class="mx-auto">
-        @endif
-        @if ($old_image != null)
-            <div class="mb-4 content-center">
-                <label class="block text-gray-700 font-bold mb-2" for="old_image">
-                    Old Image
-                </label>
-                <img id="old_image" src="{{ $old_image }}" alt="{{ $title }}" class="mx-auto">
+
+        <div class="flex flex-row flex-wrap -mx-4 items-stretch">
+            <div class="w-full px-4">
+                @if (session()->has('message'))
+                    <div class="text-green-500 font-bold text-lg md:text-2xl">
+                        {{ session('message') }}
+                    </div>
+                @endif
             </div>
-        @endif
-        <button type="submit">Save Blog</button>
+
+            <div class="w-full">
+                <div wire:loading wire:target="image">Uploading...</div>
+            </div>
+
+            <div class="w-full px-4 py-2">
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="title">Title</label>
+                <input type="text" id="title" wire:model="title" class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300">
+                @error('title') <span class="text-red-600 text-sm block pt-0.5">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="w-full md:w-1/2 px-4 py-2">
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="published">Published</label>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="published" class="sr-only peer" wire:model="published">
+                    <div class="w-11 h-6 bg-red-500 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                </label>
+                @error('published') <span class="text-red-600 text-sm block pt-0.5">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="w-full md:w-1/2 px-4 py-2">
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="use_global">Use global keywords and description</label>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" id="use_global" class="sr-only peer" wire:model="use_global">
+                    <div class="w-11 h-6 bg-red-500 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                </label>
+                @error('use_global') <span class="text-red-600 text-sm block pt-0.5">{{ $message }}</span> @enderror
+            </div>
+
+            
+
+            <div class="w-full  px-4 py-2">
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="slug">Slug</label>
+                <input type="text" id="slug" wire:model="slug" class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300">
+                @error('slug') <span class="text-red-600 text-sm block pt-0.5">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="w-full px-4 py-2">
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="keywords">Keywords</label>
+                <textarea type="text" id="keywords" wire:model="keywords" class="h-32 w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300"></textarea>
+                @error('keywords') <span class="text-red-600 text-sm block pt-0.5">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="w-full px-4 py-2">
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="description">Description</label>
+                <textarea type="text" id="description" wire:model="description" class="h-32 w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300"></textarea>
+                @error('description') <span class="text-red-600 text-sm block pt-0.5">{{ $message }}</span> @enderror
+            </div>
+            
+            <div class="w-full px-4 py-2" wire:ignore>
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="image">Blog text</label>
+                <textarea id="body" wire:model='body' name="body" class="min-h-fit h-48">
+                </textarea>
+            </div>
+
+            <div class="w-full md:w-1/2 px-4 py-2">
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="image">New Image</label>
+                <input type="file" id="image" wire:model="image" class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300">
+                @error('image') <span class="text-red-600 text-sm block pt-0.5">{{ $message }}</span> @enderror
+            </div>
+
+            @if ($image)
+            <div class="w-full px-4 py-2">
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="image">Image Preview</label>
+                <img src="{{ $image->temporaryUrl() }}" class="w-auto h-auto max-w-[70%] max-h-[400px]">
+            </div>
+            @endif
+
+            @if ($old_image != null)
+            <div class="w-full px-4 py-2">
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="image">Old Image</label>
+                <img id="old_image" src="{{ $old_image }}" alt="{{ $title }}" class="w-auto h-auto max-w-[70%] max-h-[400px]">
+            </div>
+            @endif
+
+
+            <div class="w-full px-4 py-2">
+                <div class="flex flex-row justify-between items-center w-full pt-2">
+                    <div>
+                        <button type="submit" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-white bg-blue-500 text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 transition ease-in-out duration-200">Save User</button>
+                    </div>
+
+                    <div>
+                        <a href="{{ route('blog.show', $blog) }}" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-blue-500 bg-white text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 hover:text-white transition ease-in-out duration-200">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 </div>
+
 
 @push('scripts')
     <script src="{{ asset("/tinymce/tinymce.min.js") }}" referrerpolicy="origin"></script>
@@ -100,7 +116,7 @@
             toolbar_sticky: true,
             toolbar_sticky_offset: isSmallScreen ? 102 : 108,
             image_advtab: true,
-            height: 600,
+            height: 400,
             image_caption: true,
             quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
             noneditable_class: 'mceNonEditable',
@@ -135,9 +151,9 @@
                 input.click();
             },
             setup: function (editor) {
-                editor.on('init change', function () {
-                    editor.save();
-                });
+                // editor.on('init change', function () {
+                //     editor.save();
+                // });
                 editor.on('change', function (e) {
                     @this.set('body', editor.getContent());
                 });

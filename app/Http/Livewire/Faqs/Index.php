@@ -79,11 +79,8 @@ class Index extends Component
             ->orderBy($this->order_by, $this->order_type)
             ->paginate($this->per_page_selected);
 
-        $settings = Settings::first();
-
         return view('livewire.faqs.index', [
-            'faqs' => $faqs,
-            'settings' => $settings
+            'faqs' => $faqs
         ]);
     }
 }

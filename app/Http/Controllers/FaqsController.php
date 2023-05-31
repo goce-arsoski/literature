@@ -34,7 +34,7 @@ class FaqsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreFaqRequest $request)
+    public function store(StoreFaqsRequest $request)
     {
         //
     }
@@ -50,17 +50,17 @@ class FaqsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Faqs $faq)
+    public function edit(Faqs $faqs)
     {
         abort_if(Gate::denies('edit_blogs'), 403);
         
-        return view('faqs.edit', compact('faq'));
+        return view('faqs.edit', compact('faqs'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateFaqRequest $request, Faqs $faq)
+    public function update(UpdateFaqsRequest $request, Faqs $faq)
     {
         //
     }

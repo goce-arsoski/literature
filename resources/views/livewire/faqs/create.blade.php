@@ -1,24 +1,39 @@
-<div class="text-center" x-data="{ title_focused: @entangle('title_focused')}">
+<div class="w-fill block" x-data="{ title_focused: @entangle('title_focused')}">
     <form wire:submit.prevent="submit">
-        <div lass="mb-4">
-            @if (session()->has('message'))
-                <div class="alert alert-success">
-                    {{ session('message') }}
+
+        <div class="flex flex-row flex-wrap -mx-4 items-stretch">
+            <div class="w-full px-4">
+                @if (session()->has('message'))
+                    <div class="text-green-500 font-bold text-lg md:text-2xl">
+                        {{ session('message') }}
+                    </div>
+                @endif
+            </div>
+
+            <div class="w-full px-4 py-2">
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="question">Question:</label>
+                <input type="text" id="question" wire:model="question" class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300">
+                @error('question') <span class="text-red-600 text-sm block pt-0.5">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="w-full px-4 py-2" wire:ignore>
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="answer">Answer:</label>
+                <textarea id="answer" wire:model='answer' name="answer" class="h-38">
+                </textarea>
+            </div>
+
+            <div class="w-full px-4 py-2">
+                <div class="flex flex-row justify-between items-center w-full pt-2">
+                    <div>
+                        <button type="submit" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-white bg-blue-500 text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 transition ease-in-out duration-200">Save FAQ</button>
+                    </div>
+
+                    <div>
+                        <a href="{{ route('faqs.index') }}" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-blue-500 bg-white text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 hover:text-white transition ease-in-out duration-200">Cancel</a>
+                    </div>
                 </div>
-            @endif
+            </div>
         </div>
-        <div class="mb-4">
-            <label class="block text-gray-700 font-bold mb-2" for="question">
-                Question
-            </label>
-            <input type="text" id="question" wire:model="question" class="border-gray-300 rounded-md shadow-sm">
-            @error('question') <span class="error">{{ $message }}</span> @enderror
-        </div>
-        <div wire:ignore class="mb-4">
-            <textarea id="answer" wire:model='answer' name="answer" class="min-h-fit h-48">
-            </textarea>
-        </div>
-        <button type="submit">Save FAQ</button>
     </form>
 </div>
 
@@ -72,9 +87,9 @@
                 input.click();
             },
             setup: function (editor) {
-                editor.on('init change', function () {
-                    editor.save();
-                });
+                // editor.on('init change', function () {
+                //     editor.save();
+                // });
                 editor.on('change', function (e) {
                     @this.set('answer', editor.getContent());
                 });

@@ -23,7 +23,7 @@ After that run the following commands:
 
 ```
 php artisan migrate:fresh --seed
-npm run dev -- -- host 0.0.0.0
+npm run dev -- --host 0.0.0.0
 ```
 
 If you are not using the URL starter.test for the project be sure to change the URL in the .env file and in the vite.config.js file.

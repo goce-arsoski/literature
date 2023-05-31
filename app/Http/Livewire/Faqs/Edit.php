@@ -8,7 +8,6 @@ use App\Models\Faqs;
 
 class Edit extends Component
 {
-    public $id;
     public $question;
     public $answer;
     public $order;
@@ -26,33 +25,28 @@ class Edit extends Component
     public function mount(Faqs $faqs)
     {
         $this->faqs = $faqs;
+        $this->question = $faqs->question;
+        $this->answer = $faqs->answer;
     }
 
     public function submit()
     {
         $this->validate();
 
-        $settings = $this->settings;
+        $faqs = $this->faqs;
 
-        $settings->blogs_slug = $this->blogs_slug;
-        $settings->global_author = $this->global_author;
-        $settings->global_keywords = $this->global_keywords;
-        $settings->global_description = $this->global_description;
+        $faqs->question = $this->question;
+        $faqs->answer = $this->answer;
+        
 
-        if ($this->image != null) {
-            $image_extension = $this->image->getClientOriginalExtension();
-            $image_url = $this->image->storeAs('images', config('app.name', 'Laravel') . $image_extension);
-            $image_url = url($image_url);
-            $settings->image = $image_url;
-        }
-
-        $settings->save();
+        $faqs->save();
 
         session()->flash('message', 'FAQs successfully edited');
     }
 
     public function render()
     {
-        return view('livewire.settings.edit');
+        dd($this->faqs);
+        return view('livewire.faqs.edit');
     }
 }

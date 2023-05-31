@@ -1,82 +1,104 @@
-<div>
-    <div>
-        <label class="block text-gray-700 font-bold mb-2" for="search">
-            Search
-        </label>
-        <input type="text" id="search" class="border-gray-300 rounded-md shadow-sm"
-            wire:model.debounce.500ms="search"
-        >
-        <div wire:loading>
-            Processing...
+<div class="w-fill block">
+    <form wire:submit.prevent="submit">
+
+        <div class="flex flex-row flex-wrap -mx-4 items-stretch">
+            <div class="w-full px-4">
+                @if (session()->has('message'))
+                    <div class="text-green-500 font-bold text-lg md:text-2xl">
+                        {{ session('message') }}
+                    </div>
+                @endif
+            </div>
+
+            <div class="w-full">
+                <div wire:loading wire:target="image">Uploading...</div>
+            </div>
+
+            <div class="w-full px-4 py-2">
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="question">Question</label>
+                <input type="text" id="question" wire:model="question" class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300">
+                @error('question') <span class="text-red-600 text-sm block pt-0.5">{{ $message }}</span> @enderror
+            </div>
+         
+            <div class="w-full px-4 py-2" wire:ignore>
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="answer">Answer</label>
+                <textarea id="answer" wire:model='answer' name="body" class="min-h-fit h-48">
+                </textarea>
+            </div>
+
+            <div class="w-full px-4 py-2">
+                <div class="flex flex-row justify-between items-center w-full pt-2">
+                    <div>
+                        <button type="submit" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-white bg-blue-500 text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 transition ease-in-out duration-200">Save FAQ</button>
+                    </div>
+
+                    <div>
+                        <a href="{{ route('faqs.index') }}" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-blue-500 bg-white text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 hover:text-white transition ease-in-out duration-200">Cancel</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <table class="mx-auto table-auto">
-        <thead>
-            <tr>
-                <td colspan="8">
-                    <span>{{ $faqs->links() }}</span>
-                </td>
-            </tr>
-            <tr class="bg-gradient-to-r from-sky-600 to-cyan-400">
-                <th class="px-10 py-2 cursor-pointer" wire:click="order_by('id')">
-                    <span class="text-gray-100 font-semibold">Id</span>
-                </th>
-                <th class="px-10 py-2 cursor-pointer" wire:click="order_by('title')">
-                    <span class="text-gray-100 font-semibold">Question</span>
-                </th>
-                <th class="px-10 py-2">
-                    <span class="text-gray-100 font-semibold">Answer</span>
-                </th>
-                <th class="px-10 py-2 cursor-pointer" wire:click="order_by('keywords')">
-                    <span class="text-gray-100 font-semibold">Order</span>
-                </th>
-                <th class="px-10 py-2 cursor-pointer" wire:click="order_by('description')">
-                    <span class="text-gray-100 font-semibold">Description</span>
-                </th>
-                <th class="px-10 py-2">
-                    <span class="text-gray-100 font-semibold">View</span>
-                </th>
-                <th class="px-10 py-2">
-                    <span class="text-gray-100 font-semibold">Edit</span>
-                </th>
-                <th class="px-10 py-2">
-                    <span class="text-gray-100 font-semibold">Delete</span>
-                </th>
-            </tr>
-        </thead>
-        <tbody class="bg-gray-200">
-            @foreach ($blogs as $blog)
-            <tr class="bg-white border-b-2 border-gray-200">
-                <td class="px-10 py-2">
-                    <span>{{ $blog->id }}</span>
-                </td>
-                <td class="px-10 py-2">
-                    <span>{{ Str::words($blog->title, 5, '... ') }}</span>
-                </td>
-                <td class="px-10 py-2">
-                    <label class="relative inline-flex items-center mb-5 cursor-pointer">
-                        <input type="checkbox" {{ $blog->published ? 'checked' : '' }} class="sr-only peer" wire:click="set_published({{ $blog->id }})">
-                        <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                        <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
-                    </label>
-                </td>
-                <td class="px-10 py-2">
-                    <span>{{ Str::words($blog->keywords, 5,'... ') }}</span>
-                </td>
-                <td class="px-10 py-2">
-                    <span>{{ Str::words($blog->description, 5, '... ') }}</span>
-                </td>
-                <td class="px-10 py-2">
-                    <span><a href="{{ route('blog.show', $blog) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a></span>
-                </td>
-                <td class="px-10 py-2">
-                    <span><a href="{{ route('blog.edit', $blog) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Edit</a></span>
-                </td>
-                <td class="px-10 py-2">
-                    <span><a href="#" wire:click.prevent="delete_blog({{ $blog }})" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Delete</a></span>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    </form>
 </div>
+
+
+@push('scripts')
+    <script src="{{ asset("/tinymce/tinymce.min.js") }}" referrerpolicy="origin"></script>
+    <script>
+        const useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isSmallScreen = window.matchMedia('(max-width: 1023.5px)').matches;
+
+        tinymce.init({
+            selector: 'textarea#body',
+            plugins: 'preview importcss searchreplace autolink directionality code visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
+            editimage_cors_hosts: ['picsum.photos'],
+            menubar: 'file edit view insert format tools table help',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview print | insertfile image media template link anchor codesample | ltr rtl',
+            toolbar_sticky: true,
+            toolbar_sticky_offset: isSmallScreen ? 102 : 108,
+            image_advtab: true,
+            height: 400,
+            image_caption: true,
+            quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+            noneditable_class: 'mceNonEditable',
+            toolbar_mode: 'sliding',
+            contextmenu: 'link image table',
+            skin: useDarkMode ? 'oxide-dark' : 'oxide',
+            content_css: useDarkMode ? 'dark' : 'default',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+            promotion: false,
+            images_upload_url: '/upload',
+            file_picker_types: 'image',
+            relative_urls: false,
+            remove_script_host: false,
+            convert_urls: true,
+            file_picker_callback: function (cb, value, meta){
+                var input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+                input.onchange = function(){
+                    var file = this.files[0];
+                    var reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = function(){
+                        var id = 'blobid'+(new Date()).getTime();
+                        var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                        var base64 = reader.result.split(',')[1];
+                        var blobInfo = blobCache.create(id, file, base64);
+                        blobCache.add(blobInfo);
+                        cb(blobInfo.blobUri(), {title:file.name});
+                    };
+                };
+                input.click();
+            },
+            setup: function (editor) {
+                // editor.on('init change', function () {
+                //     editor.save();
+                // });
+                editor.on('change', function (e) {
+                    @this.set('body', editor.getContent());
+                });
+            }
+        });
+    </script>
+@endpush
