@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Models\User;
 use App\Models\Blog;
 use App\Models\Faq;
+use App\Models\Subscriber;
 
 class Modal extends Component
 {
@@ -17,7 +18,8 @@ class Modal extends Component
     protected $listeners = [
         'delete_user' => 'delete_user',
         'delete_blog' => 'delete_blog',
-        'delete_faq' => 'delete_faq'
+        'delete_faq' => 'delete_faq',
+        'delete_subscriber' => 'delete_subscriber'
     ];
 
     public function hide()
@@ -77,6 +79,24 @@ class Modal extends Component
         $this->modal_property = "hidden";
         $this->model_id = null;
         $this->emitTo('faqs.index', '$refresh');
+    }
+
+    public function delete_subscriber($subscriber_id)
+    {
+        $this->model_to_delete = "subscriber";
+        $this->modal_property = "block";
+        $this->model_id = $subscriber_id;
+    }
+
+    public function confirm_subscriber_deletion($subscriber_id)
+    {
+        $subscriber = Subscriber::find($subscriber_id);
+        $subscriber->delete();
+
+        $this->model_to_delete = "";
+        $this->modal_property = "hidden";
+        $this->model_id = null;
+        $this->emitTo('subscribers.index', '$refresh');
     }
 
     public function render()

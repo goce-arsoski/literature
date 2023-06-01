@@ -26,6 +26,8 @@
                                 <a href="#" wire:click.prevent="confirm_blog_deletion({{ $model_id }})" class="block text-center border border-red-400 rounded-md min-h-[46px] h-auto py-2 p-1.5 w-[125px] max-w-full text-white bg-red-400 text-base md:text-lg leading-tight hover:bg-red-600 hover:border-red-600 transition ease-in-out duration-200 font-bold">Delete</a>
                             @elseif ($model_to_delete == "faq")
                                 <a href="#" wire:click.prevent="confirm_faq_deletion({{ $model_id }})" class="block text-center border border-red-400 rounded-md min-h-[46px] h-auto py-2 p-1.5 w-[125px] max-w-full text-white bg-red-400 text-base md:text-lg leading-tight hover:bg-red-600 hover:border-red-600 transition ease-in-out duration-200 font-bold">Delete</a>
+                            @elseif ($model_to_delete == "subscriber")
+                                <a href="#" wire:click.prevent="confirm_subscriber_deletion({{ $model_id }})" class="block text-center border border-red-400 rounded-md min-h-[46px] h-auto py-2 p-1.5 w-[125px] max-w-full text-white bg-red-400 text-base md:text-lg leading-tight hover:bg-red-600 hover:border-red-600 transition ease-in-out duration-200 font-bold">Delete</a>
                             @endif
                         </div>
                         <div class="px-2 py-2">
