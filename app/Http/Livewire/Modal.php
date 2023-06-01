@@ -75,6 +75,14 @@ class Modal extends Component
         $faq = Faq::find($faq_id);
         $faq->delete();
 
+        $faqs = Faq::orderBy('order')->get();
+
+        foreach ($faqs as $key => $faq_value) {
+            $faq_value->order = $key + 1;
+            $faq_value->save();
+        }
+
+
         $this->model_to_delete = "";
         $this->modal_property = "hidden";
         $this->model_id = null;

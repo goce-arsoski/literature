@@ -29,9 +29,9 @@ class Create extends Component
             'answer' => $this->answer,
         ]);
 
-        $faq_id = $faq->id;
+        $faqs = Faq::all();
 
-        $faq->order = $faq_id;
+        $faq->order = count($faqs);
         $faq->save();
 
         session()->flash('flash.banner', 'FAQ successfully created');
