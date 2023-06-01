@@ -35,9 +35,13 @@ Route::middleware([
 
     Route::resource('settings', \App\Http\Controllers\SettingsController::class);
     Route::resource('faq', \App\Http\Controllers\FaqController::class);
+    Route::resource('subscriber', \App\Http\Controllers\SubscriberController::class);
+
+    Route::get('/download_csv', [\App\Http\Controllers\Controller::class, 'download_csv'])->name('download_csv');
 });
 
 Route::get('/faqs', [\App\Http\Controllers\Controller::class, 'list_faqs'])->name('list_faqs');
+Route::get('/landing_page', [\App\Http\Controllers\Controller::class, 'landing_page'])->name('landing_page');
 
 Route::get('/{main_slug}/{slug}', [\App\Http\Controllers\Controller::class, 'list_blog'])->name('list_blog');
 Route::get('/{main_slug}', [\App\Http\Controllers\Controller::class, 'list_blogs'])->name('list_blogs');
