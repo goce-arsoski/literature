@@ -68,7 +68,10 @@ class Create extends Component
             'body' => $this->body,
         ]);
 
-        session()->flash('message', 'Blog successfully created');
+        session()->flash('flash.banner', 'Blog successfully created');
+        session()->flash('flash.bannerStyle', 'success');
+        
+        return redirect()->route('blog.index');
     }
 
     public function render()

@@ -35,7 +35,10 @@ class Create extends Component
             $user->assignRole($this->role);
         }
 
-        session()->flash('message', 'User successfully created');
+        session()->flash('flash.banner', 'User successfully created');
+        session()->flash('flash.bannerStyle', 'success');
+        
+        return redirect()->route('user.index');
     }
 
     public function render()

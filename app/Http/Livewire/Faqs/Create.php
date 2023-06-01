@@ -34,7 +34,10 @@ class Create extends Component
         $faq->order = $faq_id;
         $faq->save();
 
-        session()->flash('message', 'FAQ successfully created');
+        session()->flash('flash.banner', 'FAQ successfully created');
+        session()->flash('flash.bannerStyle', 'success');
+        
+        return redirect()->route('faq.index');
     }
 
     public function render()
