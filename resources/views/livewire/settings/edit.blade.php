@@ -1,9 +1,8 @@
 <div class="w-full block">
     <form wire:submit.prevent="submit">
-
-
         <div class="flex flex-row flex-wrap -mx-4">
             <div class="w-full px-4 py-2">
+                <div wire:loading wire:target="brand_logo">Uploading...</div>
                 <div wire:loading wire:target="image">Uploading...</div>
                 <div lass="mb-4">
                     @if (session()->has('message'))
@@ -15,11 +14,21 @@
             </div>
 
             <div class="w-full md:w-1/2 px-4 py-2">
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="brand_logo">Brand Logo</label>
+                <input type="file" id="brand_logo" wire:model="brand_logo" class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300">
+                @error('brand_logo') <span class="text-red-600 text-sm block pt-0.5">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="w-full md:w-1/2 px-4 py-2">
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="brand_text">Brand Text</label>
+                <input type="text" id="brand_text" wire:model="brand_text" class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300">
+                @error('global_author') <span class="text-red-600 text-sm block pt-0.5">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="w-full md:w-1/2 px-4 py-2">
                 <label class="block text-neutral-800 font-medium text-base mb-1" for="blogs_slug">Blogs Slug</label>
                 <input type="text" id="blogs_slug" wire:model="blogs_slug" class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300">
                 @error('blogs_slug') <span class="text-red-600 text-sm block pt-0.5">{{ $message }}</span> @enderror
-
-                
             </div>
 
             <div class="w-full md:w-1/2 px-4 py-2">
@@ -41,7 +50,7 @@
             </div>
 
             <div class="w-full px-4 py-2">
-                <label class="block text-neutral-800 font-medium text-base mb-1" for="image">Blog preview image</label>
+                <label class="block text-neutral-800 font-medium text-base mb-1" for="image">Image</label>
                 <input type="file" id="image" wire:model="image" class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300">
                 @error('image') <span class="text-red-600 text-sm block pt-0.5">{{ $message }}</span> @enderror
             </div>

@@ -10,6 +10,6 @@ class Settings extends Model
     use HasFactory;
 
     protected $fillable = [
-        'blogs_slug', 'global_author', 'global_keywords', 'global_description', 'image'
+        'brand_logo', 'brand_text', 'blogs_slug', 'global_author', 'global_keywords', 'global_description', 'image'
     ];
 }

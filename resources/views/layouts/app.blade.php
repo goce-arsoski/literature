@@ -34,7 +34,7 @@
 
         <x-header-main />
 
-        <x-sidebar />
+        <x-sidebar-main />
 
         {{ $slot }}
 

@@ -6,14 +6,18 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class modal-delete extends Component
+use App\Models\Settings;
+
+class SidebarMain extends Component
 {
+    public $settings;
+
     /**
      * Create a new component instance.
      */
     public function __construct()
     {
-        //
+        $this->settings = Settings::first();
     }
 
     /**
@@ -21,6 +25,6 @@ class modal-delete extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.modal-delete');
+        return view('components.sidebar-main');
     }
 }
