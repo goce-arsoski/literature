@@ -11,7 +11,11 @@
                 </li>
                 <li class="inline-block">
                     <a href="#" class="flex items-center w-full justify-start flex-row">
-                        <img src="{{ Vite::asset('resources/images/si_group_rounded.svg')}}" class="max-w-[35px] sm:max-w-[40px] md:max-w-[48px] h-auto">
+                        @if ($settings->brand_logo != null)
+                            <img src="{{ asset($settings->brand_logo) }}" class="max-w-[48px] max-h-[48px]">
+                        @else
+                            <img src="{{ Vite::asset('resources/images/si_group_rounded.svg')}}" class="max-w-[48px] max-h-[48px]">
+                        @endif
                     </a>
                 </li>
             </ul>

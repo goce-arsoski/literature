@@ -6,14 +6,18 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
+use App\Models\Settings;
+
 class HeaderMain extends Component
 {
+    public $settings;
+
     /**
      * Create a new component instance.
      */
     public function __construct()
     {
-        //
+        $this->settings = Settings::first();
     }
 
     /**
