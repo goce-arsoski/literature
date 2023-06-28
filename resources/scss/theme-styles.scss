@@ -449,3 +449,27 @@ body {
     -webkit-mask-position: right;
     mask-position: right;
 }
+
+
+.tippy-box[data-placement^='top'] > .tippy-arrow::before {
+	border-top-color: #69B578;
+}
+.tippy-box[data-placement^='bottom'] > .tippy-arrow::before {
+	border-bottom-color: #69B578;
+}
+.tippy-box[data-placement^='left'] > .tippy-arrow::before {
+	border-left-color: #69B578;
+}
+.tippy-box[data-placement^='right'] > .tippy-arrow::before {
+	border-right-color: #69B578;
+}
+
+.tippy-box {
+	background-color: #3b82f6;
+	padding: 3px 5px 2px 5px;
+	border-radius: 5px;
+	font-weight: bold;
+	color: #FFF;
+	font-size: 14px;
+	line-height: 120%;
+}
