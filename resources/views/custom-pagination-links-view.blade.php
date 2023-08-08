@@ -50,7 +50,7 @@
                     <span >
                         @if ($page == $paginator->currentPage())
                             <div class="py-2 px-1.5">
-                                <a href="#" class="inline-block w-6 h-6 rounded-md text-center leading-6 bg-blue-500 text-white text-sm font-bold hover:bg-blue-500 transition-all">{{ $page }}</a>
+                                <a href="#" class="inline-block w-6 h-6 rounded-md text-center leading-6 bg-admin-main text-white text-sm font-bold hover:bg-admin-main transition-all">{{ $page }}</a>
                             </div>
                        
                         @else

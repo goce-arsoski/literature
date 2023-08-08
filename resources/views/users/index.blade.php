@@ -8,7 +8,7 @@
                     </h2>
                 </div>
                 <div>
-                    <a href="{{ route('user.create') }}" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-white bg-blue-500 text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 transition ease-in-out duration-200">Create new user</a>
+                    <a href="{{ route('user.create') }}" class="inline-block text-center border border-admin-main rounded-md min-h-[42px] h-auto py-2.5 p-5 text-white bg-admin-main text-base font-medium leading-tight hover:bg-admin-hover hover:border-admin-hover transition ease-in-out duration-200">Create new user</a>
                 </div>
             </div>
             

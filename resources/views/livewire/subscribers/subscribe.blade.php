@@ -16,7 +16,7 @@
                     <input wire:model="email" type="email" name="email" id="email" placeholder="Your email" class="w-full font-normal text-lg md:text-xl text-colormain placeholder:text-gray-500 min-h-[52px] py-2 px-4 bg-white transition-all rounded-md border-gray-300 border-solid border focus:border-colormain">
                 </div>
                 <div class="w-full sm:w-[240px] px-2 py-1">
-                    <button type="submit" class="w-full font-bold text-lg md:text-xl text-white min-h-[52px] py-2 px-2 bg-blue-500 transition-all hover:bg-blue-600 rounded-md">Subscribe me</button>
+                    <button type="submit" class="w-full font-bold text-lg md:text-xl text-white min-h-[52px] py-2 px-2 bg-admin-main transition-all hover:bg-blue-600 rounded-md">Subscribe me</button>
                 </div>
             </div>
         </form>

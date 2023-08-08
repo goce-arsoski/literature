@@ -26,7 +26,7 @@
 
     <div class="w-fill overflow-x-auto mb-3 min-h-[calc(100vh_-_340px)] md:min-h-[calc(100vh_-_280px)]">
         <table class="min-w-full">
-            <thead class="border-b bg-blue-500 text-white">
+            <thead class="border-b bg-admin-main text-white">
                 <tr>
                     <th scope="col" class="text-sm sm:text-base px-2 py-2 text-center text-3.5 font-semibold">
                         ID 
@@ -62,7 +62,7 @@
                     </td>
                     <td class="text-sm md:text-base text-neutral-800 font-normal text-4 px-2 py-2 whitespace-nowrap align-middle">{{ $subscriber->created_at }}</td>
                     <td class="text-sm text-neutral-800 font-normal text-4 px-2 py-2 whitespace-nowrap text-center align-middle">
-                        <a href="" wire:click.prevent="delete_subscriber({{ $subscriber }})" class="text-sm text-gray-500 py-1 px-2 block text-left bg-transparent font-normal transition-all duration-300 rounded-md hover:bg-blue-50 hover:text-blue-500 hover:font-bold">Delete subscriber</a>
+                        <a href="" wire:click.prevent="delete_subscriber({{ $subscriber }})" class="text-sm text-gray-500 py-1 px-2 block text-left bg-transparent font-normal transition-all duration-300 rounded-md hover:bg-blue-50 hover:text-admin-main hover:font-bold">Delete subscriber</a>
                     </td>
                 </tr>
                 @endforeach

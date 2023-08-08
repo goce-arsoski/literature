@@ -25,41 +25,41 @@
                                     </h2>
                                 </div>
                                 <div>
-                                    <a href="{{ route('blog.edit', $blog) }}" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-white bg-blue-500 text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 transition ease-in-out duration-200">Edit blog</a>
+                                    <a href="{{ route('blog.edit', $blog) }}" class="inline-block text-center border border-admin-main rounded-md min-h-[42px] h-auto py-2.5 p-5 text-white bg-admin-main text-base font-medium leading-tight hover:bg-admin-hover hover:border-admin-hover transition ease-in-out duration-200">Edit blog</a>
                                 </div>
                             </div>
                         </div>
 
                         <div class="w-full md:w-1/3 px-4 py-2">
                             <label class="block text-neutral-800 font-medium text-base mb-1" for="id">ID</label>
-                            <input type="text" id="id" disabled class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300" value="{{ $blog->id }}">
+                            <input type="text" id="id" disabled class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-admin-main !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300" value="{{ $blog->id }}">
                         </div>
                         
                         <div class="w-full px-4 py-2">
                             <label class="block text-neutral-800 font-medium text-base mb-1" for="title">Title</label>
-                            <input type="text" id="title" disabled class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300" value="{{ $blog->title }}">
+                            <input type="text" id="title" disabled class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-admin-main !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300" value="{{ $blog->title }}">
                         </div>
 
                         <div class="w-full md:w-1/2 px-4 py-2">
                             <label class="block text-neutral-800 font-medium text-base mb-1" for="slug">Slug</label>
-                            <input type="text" id="slug" disabled class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300" value="{{ $blog->slug }}">
+                            <input type="text" id="slug" disabled class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-admin-main !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300" value="{{ $blog->slug }}">
                         </div>
 
                         
 
                         <div class="w-full md:w-1/2 px-4 py-2">
                             <label class="block text-neutral-800 font-medium text-base mb-1" for="author">Author</label>
-                            <input type="text" id="author" disabled class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300" value="{{ $blog->author }}">
+                            <input type="text" id="author" disabled class="w-full border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-admin-main !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300" value="{{ $blog->author }}">
                         </div>
 
                         <div class="w-full px-4 py-2">
                             <label class="block text-neutral-800 font-medium text-base mb-1" for="keywords">Keywords</label>
-                            <textarea id="keywords" disabled class="w-full h-32 border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300" >{{ $blog->keywords }}</textarea>
+                            <textarea id="keywords" disabled class="w-full h-32 border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-admin-main !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300" >{{ $blog->keywords }}</textarea>
                         </div>
 
                         <div class="w-full px-4 py-2">
                             <label class="block text-neutral-800 font-medium text-base mb-1" for="description">Description</label>
-                            <textarea id="description" disabled class="w-full h-32 border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-blue-500 !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300">{{ $blog->description }}</textarea>
+                            <textarea id="description" disabled class="w-full h-32 border-px border-gray-300 border-solid bg-white py-2 px-3 rounded-md shadow-sm min-h-[42px] placeholder:text-gray-500 text-black font-normal text-base leading-tight focus:border-admin-main !ring-transparent disabled:text-black disabled:bg-gray-50 disabled:border-gray-300">{{ $blog->description }}</textarea>
                         </div>
 
                         <div class="w-full px-4 py-2">

@@ -10,10 +10,10 @@
                 <div>
                     <div class="flex flex-row -mx-2 flex-wrap items-center">
                         <div class="px-2 py-0.5 order-3 sm:order-3">
-                            <a href="{{ route('list_faqs') }}" target="_blank" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-white bg-blue-500 text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 transition ease-in-out duration-200">FAQ public link</a>
+                            <a href="{{ route('list_faqs') }}" target="_blank" class="inline-block text-center border border-admin-main rounded-md min-h-[42px] h-auto py-2.5 p-5 text-white bg-admin-main text-base font-medium leading-tight hover:bg-admin-hover hover:border-admin-hover transition ease-in-out duration-200">FAQ public link</a>
                         </div>
                         <div class="px-2 py-0.5 order-1 sm:order-2">
-                            <a href="{{ route('faq.create') }}" class="inline-block text-center border border-blue-500 rounded-md min-h-[42px] h-auto py-2.5 p-5 text-white bg-blue-500 text-base font-medium leading-tight hover:bg-blue-400 hover:border-blue-400 transition ease-in-out duration-200">Create new FAQ</a>
+                            <a href="{{ route('faq.create') }}" class="inline-block text-center border border-admin-main rounded-md min-h-[42px] h-auto py-2.5 p-5 text-white bg-admin-main text-base font-medium leading-tight hover:bg-admin-hover hover:border-admin-hover transition ease-in-out duration-200">Create new FAQ</a>
                         </div>
                     </div>
                     
