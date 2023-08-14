@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('./colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -15,12 +16,7 @@ module.exports = {
                 sans: ['Karla', ...defaultTheme.fontFamily.sans],
             },
 
-            colors: {
-                'admin-main': '#3b82f6',
-                'admin-hover': '#60a5fa',
-                'admin-sidebar-toggler-bg': '#dbeafe',
-                'admin-sidebar-toggler-arrow': '#3B82F6',
-            },
+            colors: colors,
         },
     },
 

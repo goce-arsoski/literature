@@ -20,6 +20,10 @@ return new class extends Migration
             $table->text('global_keywords')->nullable();
             $table->text('global_description')->nullable();
             $table->string('image')->nullable();
+            $table->string('admin_main');
+            $table->string('admin_hover');
+            $table->string('admin_sidebar_toggler_bg');
+            $table->string('admin_sidebar_toggler_arrow');
             $table->timestamps();
         });
     }
