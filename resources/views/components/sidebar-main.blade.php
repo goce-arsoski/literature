@@ -66,12 +66,12 @@
     <div class="h-[50px] sm:h-[60px] md:h-[78px] w-full flex items-center justify-start px-5 lg:group-[&.mainmenu-collapsed]/maincollapse:px-4">
         <a href="{{route('dashboard')}}" class="hidden lg:flex items-center w-full justify-start flex-row">
             @if ($settings->brand_logo != null)
-                <span class="object-cover object-center rounded-md w-[38px] h-[38px] sm:w-[43px] sm:h-[43px] md:w-[48px] md:h-[48px] inline-block">
-                    <img src="{{ asset($settings->brand_logo) }}" class="w-full h-full rounded-md">
+                <span class="rounded-md w-[38px] h-[38px] sm:w-[43px] sm:h-[43px] md:w-[48px] md:h-[48px] inline-block">
+                    <img src="{{ asset($settings->brand_logo) }}" class="w-full h-full rounded-md object-cover object-center">
                 </span>
             @else
-                <span class="object-cover object-center rounded-md w-[38px] h-[38px] sm:w-[43px] sm:h-[43px] md:w-[48px] md:h-[48px] inline-block">
-                    <img src="{{ Vite::asset('resources/images/si_group_rounded.svg')}}" class="w-full h-full rounded-md">
+                <span class=" rounded-md w-[38px] h-[38px] sm:w-[43px] sm:h-[43px] md:w-[48px] md:h-[48px] inline-block">
+                    <img src="{{ Vite::asset('resources/images/si_group_rounded.svg')}}" class="w-full h-full rounded-md object-cover object-center">
                 </span>
             @endif
             @if ($settings->brand_text != null)

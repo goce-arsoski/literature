@@ -1,6 +1,6 @@
 module.exports = {
-    'admin-main': '#3b82f6',
-    'admin-hover': '#60a5fa',
-    'admin-sidebar-toggler-bg': '#dbeafe',
-    'admin-sidebar-toggler-arrow': '#3b82f6',
+    'admin-main': '#79155B',
+    'admin-hover': '#F6635C',
+    'admin-sidebar-toggler-bg': '#FFBA86',
+    'admin-sidebar-toggler-arrow': '#C23373',
 }

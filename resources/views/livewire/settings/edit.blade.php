@@ -68,29 +68,35 @@
             </div>
             @endif
 
-            <div>
-                <style>
-                    [x-cloak] {
-                        display: none;
-                    }
-                </style>
+
+            <div class="w-full px-4 py-2">
+                <h2 class="text-lg md:text-xl font-medium mb-2 pt-3">
+                    Theme colors edit
+                </h2>
+            </div>
+
+            
+
+            <div class="w-full md:w-1/2 px-4 py-2">
+  
                 <div x-data="{
                     isOpen: false,
                     colors: ['#3b82f6', '#60a5fa', '#dbeafe', '#afbbc9', '#2d3748', '#f56565', '#ed64a6'],
                     colorSelected: @entangle('admin_main')
                   }" x-cloak>
-                    <div class="max-w-sm mx-auto py-16 my-16">
+                    <div class="max-w-sm mx-auto">
     
                         <div class="mb-5">
+                            <label for="admin-main" class="block font-bold mb-1">Main hover color</label>
                             <div class="flex items-center">
                                 <div>
-                                    <label for="admin-main" class="block font-bold mb-1">Select Color</label>
+                                    
                                     <input id="admin-main" wire:model="admin_main" type="text"
                                         placeholder="Pick a color"
                                         class="border border-transparent shadow px-4 py-2 leading-normal text-gray-700 bg-white rounded-md focus:outline-none focus:shadow-outline"
-                                        readonly x-model="colorSelected">
+                                        x-model="colorSelected">
                                 </div>
-                                <div class="relative ml-3 mt-8">
+                                <div class="relative ml-3">
                                     <button type="button" @click="isOpen = !isOpen"
                                         class="w-10 h-10 rounded-full focus:outline-none focus:shadow-outline inline-flex p-2 shadow"
                                         :style="`background: ${colorSelected}; color: white`">
@@ -110,7 +116,7 @@
                                         x-transition:leave="transition ease-in duration-75 transform"
                                         x-transition:leave-start="opacity-100 scale-100"
                                         x-transition:leave-end="opacity-0 scale-95"
-                                        class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg">
+                                        class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg z-50">
                                         <div class="rounded-md bg-white shadow-xs px-4 py-3">
                                             <div class="flex flex-wrap -mx-2">
                                                 <template x-for="(color, index) in colors" :key="index">
@@ -140,29 +146,26 @@
                 </div>
             </div>
     
-            <div>
-                <style>
-                    [x-cloak] {
-                        display: none;
-                    }
-                </style>
+            <div class="w-full md:w-1/2 px-4 py-2">
+
                 <div x-data="{
                     isOpen: false,
                     colors: ['#3b82f6', '#60a5fa', '#dbeafe', '#afbbc9', '#2d3748', '#f56565', '#ed64a6'],
                     colorSelected: @entangle('admin_hover')
                   }" x-cloak>
-                    <div class="max-w-sm mx-auto py-16 my-16">
+                    <div class="max-w-sm mx-auto">
     
                         <div class="mb-5">
+                            <label for="admin-main" class="block font-bold mb-1">Main hover color</label>
                             <div class="flex items-center">
                                 <div>
-                                    <label for="admin-main" class="block font-bold mb-1">Select Color</label>
-                                    <input id="admin-main" wire:model="admin_main" type="text"
+                                    
+                                    <input id="admin-main" wire:model="admin_hover" type="text"
                                         placeholder="Pick a color"
                                         class="border border-transparent shadow px-4 py-2 leading-normal text-gray-700 bg-white rounded-md focus:outline-none focus:shadow-outline"
-                                        readonly x-model="colorSelected">
+                                        x-model="colorSelected">
                                 </div>
-                                <div class="relative ml-3 mt-8">
+                                <div class="relative ml-3">
                                     <button type="button" @click="isOpen = !isOpen"
                                         class="w-10 h-10 rounded-full focus:outline-none focus:shadow-outline inline-flex p-2 shadow"
                                         :style="`background: ${colorSelected}; color: white`">
@@ -182,7 +185,7 @@
                                         x-transition:leave="transition ease-in duration-75 transform"
                                         x-transition:leave-start="opacity-100 scale-100"
                                         x-transition:leave-end="opacity-0 scale-95"
-                                        class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg">
+                                        class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg z-50">
                                         <div class="rounded-md bg-white shadow-xs px-4 py-3">
                                             <div class="flex flex-wrap -mx-2">
                                                 <template x-for="(color, index) in colors" :key="index">
@@ -212,29 +215,25 @@
                 </div>
             </div>
     
-            <div>
-                <style>
-                    [x-cloak] {
-                        display: none;
-                    }
-                </style>
+            <div class="w-full md:w-1/2 px-4 py-2">
                 <div x-data="{
                     isOpen: false,
                     colors: ['#3b82f6', '#60a5fa', '#dbeafe', '#afbbc9', '#2d3748', '#f56565', '#ed64a6'],
                     colorSelected: @entangle('admin_sidebar_toggler_bg')
                   }" x-cloak>
-                    <div class="max-w-sm mx-auto py-16 my-16">
+                    <div class="max-w-sm mx-auto">
     
                         <div class="mb-5">
+                            <label for="admin-main" class="block font-bold mb-1">Sidebar toggler background</label>
                             <div class="flex items-center">
                                 <div>
-                                    <label for="admin-main" class="block font-bold mb-1">Select Color</label>
-                                    <input id="admin-main" wire:model="admin_main" type="text"
+                                    
+                                    <input id="admin-main" wire:model="admin_sidebar_toggler_bg" type="text"
                                         placeholder="Pick a color"
                                         class="border border-transparent shadow px-4 py-2 leading-normal text-gray-700 bg-white rounded-md focus:outline-none focus:shadow-outline"
-                                        readonly x-model="colorSelected">
+                                        x-model="colorSelected">
                                 </div>
-                                <div class="relative ml-3 mt-8">
+                                <div class="relative ml-3">
                                     <button type="button" @click="isOpen = !isOpen"
                                         class="w-10 h-10 rounded-full focus:outline-none focus:shadow-outline inline-flex p-2 shadow"
                                         :style="`background: ${colorSelected}; color: white`">
@@ -254,7 +253,7 @@
                                         x-transition:leave="transition ease-in duration-75 transform"
                                         x-transition:leave-start="opacity-100 scale-100"
                                         x-transition:leave-end="opacity-0 scale-95"
-                                        class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg">
+                                        class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg z-50">
                                         <div class="rounded-md bg-white shadow-xs px-4 py-3">
                                             <div class="flex flex-wrap -mx-2">
                                                 <template x-for="(color, index) in colors" :key="index">
@@ -284,29 +283,25 @@
                 </div>
             </div>
     
-            <div>
-                <style>
-                    [x-cloak] {
-                        display: none;
-                    }
-                </style>
+            <div class="w-full md:w-1/2 px-4 py-2">
                 <div x-data="{
                     isOpen: false,
                     colors: ['#3b82f6', '#60a5fa', '#dbeafe', '#afbbc9', '#2d3748', '#f56565', '#ed64a6'],
                     colorSelected: @entangle('admin_sidebar_toggler_arrow')
                   }" x-cloak>
-                    <div class="max-w-sm mx-auto py-16 my-16">
+                    <div class="max-w-sm mx-auto">
     
                         <div class="mb-5">
+                            <label for="admin-main" class="block font-bold mb-1">Sidebar toggler arrow fill</label>
                             <div class="flex items-center">
                                 <div>
-                                    <label for="admin-main" class="block font-bold mb-1">Select Color</label>
-                                    <input id="admin-main" wire:model="admin_main" type="text"
+                                    
+                                    <input id="admin-main" wire:model="admin_sidebar_toggler_arrow" type="text"
                                         placeholder="Pick a color"
                                         class="border border-transparent shadow px-4 py-2 leading-normal text-gray-700 bg-white rounded-md focus:outline-none focus:shadow-outline"
-                                        readonly x-model="colorSelected">
+                                         x-model="colorSelected">
                                 </div>
-                                <div class="relative ml-3 mt-8">
+                                <div class="relative ml-3">
                                     <button type="button" @click="isOpen = !isOpen"
                                         class="w-10 h-10 rounded-full focus:outline-none focus:shadow-outline inline-flex p-2 shadow"
                                         :style="`background: ${colorSelected}; color: white`">
@@ -326,7 +321,7 @@
                                         x-transition:leave="transition ease-in duration-75 transform"
                                         x-transition:leave-start="opacity-100 scale-100"
                                         x-transition:leave-end="opacity-0 scale-95"
-                                        class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg">
+                                        class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg z-50">
                                         <div class="rounded-md bg-white shadow-xs px-4 py-3">
                                             <div class="flex flex-wrap -mx-2">
                                                 <template x-for="(color, index) in colors" :key="index">
