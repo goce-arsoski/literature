@@ -24,18 +24,15 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/scss/theme-styles.scss',
             ],
-            refresh: [
-                ...refreshPaths,
-                'app/Http/Livewire/**',
-            ],
+            refresh: true,
         }),
-        viteStaticCopy({
-            targets: [
-              {
-                src: normalizePath(path.resolve(__dirname, 'vendor', 'tinymce', 'tinymce')),
-                dest: normalizePath(path.resolve(__dirname, 'public'))
-              },
-            ]
-          }),
     ],
+
+    css: {
+        preprocessorOptions: {
+            scss: {
+                api: 'modern-compiler'
+            }
+        }
+    }
 });
