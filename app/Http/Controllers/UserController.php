@@ -27,7 +27,7 @@ class UserController extends Controller
     public function create()
     {
         abort_if(Gate::denies('edit_users'), 403);
-        
+
         return view('users.create');
     }
 
@@ -42,12 +42,12 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
-    {
-        abort_if(Gate::denies('edit_users'), 403);
+    // public function show(User $user)
+    // {
+    //     abort_if(Gate::denies('edit_users'), 403);
 
-        return view('users.show', compact('user'));
-    }
+    //     return view('users.show', compact('user'));
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -55,7 +55,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         abort_if(Gate::denies('edit_users'), 403);
-        
+
         return view('users.edit', compact('user'));
     }
 
@@ -74,4 +74,36 @@ class UserController extends Controller
     {
         //
     }
+
+
+
+    // React API
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+        return response()->json($user);
+    }
+
+    public function proza()
+    {
+        // Return a list with dammy data for prose
+        return response()->json([
+            [
+                'id' => 1,
+                'title' => 'Proza 1',
+                'description' => 'Description for Proza 1',
+                'author' => 'Author 1',
+                'created_at' => now(),
+            ],
+            [
+                'id' => 2,
+                'title' => 'Proza 2',
+                'description' => 'Description for Proza 2',
+                'author' => 'Author 2',
+                'created_at' => now(),
+            ],
+        ]);
+    }
+
 }
+

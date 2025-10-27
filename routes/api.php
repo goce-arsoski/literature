@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Routes for React
+Route::get('/users/{id}', [UserController::class, 'show']);
+Route::get('/proza', [UserController::class, 'proza']);
+
+Route::get('/newest', [UserController::class, 'newest']);
+Route::get('/poezija', [UserController::class, 'poezija']);
+Route::get('/citati', [UserController::class, 'citati']);
+Route::get('/tekstovi', [UserController::class, 'tekstovi']);
+Route::get('/mybook', [UserController::class, 'mybook']);
+Route::get('/priznanija', [UserController::class, 'priznanja']);
+
+// Route::get('/login', [UserController::class, 'login']);
+// Route::get('/poezija', [UserController::class, 'poezija']);
