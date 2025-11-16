@@ -3,24 +3,24 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        @if ($settings->global_keywords != null && $blog->use_global == true)
+        {{-- @if ($settings->global_keywords != null && $blog->use_global == true)
         <meta name="keywords" content="{{ $settings->global_keywords . ', ' . $blog->keywords }}">
         @else
         <meta name="keywords" content="{{ $blog->keywords }}">
-        @endif
-        @if ($settings->global_description != null && $blog->use_global == true)
+        @endif --}}
+        {{-- @if ($settings->global_description != null && $blog->use_global == true)
         <meta name="description" content="{{ $settings->global_description . ' ' . $blog->description }}">
         @else
         <meta name="description" content="{{ $blog->description }}">
-        @endif
-        <meta name="author" content="{{ $blog->author }}">
+        @endif --}}
+        {{-- <meta name="author" content="{{ $blog->author }}">
         <meta property="og:title" content="{{ $blog->title }}">
         <meta property="og:description" content="{{ $blog->description }}">
         <meta property="og:image" content="{{ $blog->image }}">
         <meta property="og:url" content="{{ url()->full() }}">
-        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:card" content="summary_large_image"> --}}
 
-        <title>{{ $blog->title }}</title>
+        {{-- <title>{{ $blog->title }}</title> --}}
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -37,19 +37,19 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                         <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
                             <div>
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">{{ $blog->title }}</h2>
+                                {{-- <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">{{ $blog->title }}</h2> --}}
 
-                                @if ($blog->image != null)
+                                {{-- @if ($blog->image != null)
                                 <img src="{{ $blog->image }}" alt="{{ $blog->title }}" class="object-scale-down h-48">
-                                @endif
+                                @endif --}}
 
-                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                {{-- <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
                                     {{ $blog->description }}
                                 </p>
 
                                 <div>
                                     {!! $blog->body !!}
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

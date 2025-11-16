@@ -84,26 +84,26 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    public function proza()
-    {
-        // Return a list with dammy data for prose
-        return response()->json([
-            [
-                'id' => 1,
-                'title' => 'Proza 1',
-                'description' => 'Description for Proza 1',
-                'author' => 'Author 1',
-                'created_at' => now(),
-            ],
-            [
-                'id' => 2,
-                'title' => 'Proza 2',
-                'description' => 'Description for Proza 2',
-                'author' => 'Author 2',
-                'created_at' => now(),
-            ],
-        ]);
-    }
+    // public function proza()
+    // {
+    //     // Return a list with dammy data for prose
+    //     return response()->json([
+    //         [
+    //             'id' => 1,
+    //             'title' => 'Proza 1',
+    //             'description' => 'Description for Proza 1',
+    //             'author' => 'Author 1',
+    //             'created_at' => now(),
+    //         ],
+    //         [
+    //             'id' => 2,
+    //             'title' => 'Proza 2',
+    //             'description' => 'Description for Proza 2',
+    //             'author' => 'Author 2',
+    //             'created_at' => now(),
+    //         ],
+    //     ]);
+    // }
 
 }
 
